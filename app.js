@@ -10,7 +10,7 @@ app.post('/team/pokemons', () => {
     res.status(200).send('Hello World!')
 })
 
-app.get('/team', () => {
+app.get('/team', (req, res) => {
     res.status(200).send('Hello World!')
 })
 
@@ -25,3 +25,6 @@ app.put('/team', () => {
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
+
+
+exports.app = app;
