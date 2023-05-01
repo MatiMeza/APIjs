@@ -18,11 +18,10 @@ describe('suite de pruebas auth', () => {
     it('should return 200 when jwt token is valid', (done) => {
         chai.request(app)
             .post('/login')
-            .set('Authorization', 'JWT token')
             .end((err, res) => {
                 chai.request(app)
                     .get('/team')
-                    .set('Authorization', `$JWT {res.body.token}`)
+                    .set('Authorization', `JWT ${res.body.token}`)
                     .end((err, res) => {
                         chai.assert.equal(res.statusCode, 200);
                         done();
